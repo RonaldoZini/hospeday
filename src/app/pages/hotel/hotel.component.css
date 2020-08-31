@@ -1,0 +1,40 @@
+.razao-social{
+    width: 450px;
+    margin-right: 50px;
+}
+.cnpj{
+    width: 250px;
+}
+.endereco{
+    width: 390px;
+    margin-right: 10px;
+}
+.numero-endereco{
+    width: 50px;
+    margin-right: 50px;
+}
+.bairro{
+    width: 250px;
+    margin-right: 50px;
+}
+.cidade{
+    width: 350px;
+    margin-right: 10px;
+}
+.uf{
+    width: 150px;
+    margin-right: 50px;
+}
+.telefone{
+    width: 150px;
+}
+.btn.salvar{
+    color: #307135;
+    width: 100%;
+    border-radius: inherit;
+    
+}
+.btn.salvar:hover{
+    background-color: inherit;
+    background-image: linear-gradient(#fff,#fff,rgba(0,0,0,.14));
+}

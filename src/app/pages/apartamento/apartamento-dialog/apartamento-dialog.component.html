@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Adicionar Apartamento</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Descrição" autocomplete="off" [(ngModel)]="apartamento.descricao">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Número" autocomplete="off" [(ngModel)]="apartamento.numero_apartamento">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Telefone" mask="(00)0000-0000" autocomplete="off" [(ngModel)]="apartamento.telefone">
+  </mat-form-field>
+  <mat-checkbox [(ngModel)]="apartamento.cama_solteiro">Cama Solteiro</mat-checkbox>
+  <mat-form-field *ngIf="apartamento.cama_solteiro">
+    <input matInput placeholder="Qtd. Camas Solteiro" autocomplete="off" [(ngModel)]="apartamento.qtd_cama_solteiro">
+  </mat-form-field>
+  <br>
+  <mat-checkbox [(ngModel)]="apartamento.cama_casal">Cama Casal</mat-checkbox>
+  <mat-form-field *ngIf="apartamento.cama_casal">
+    <input matInput placeholder="Qtd. Camas Casal" autocomplete="off" [(ngModel)]="apartamento.qtd_cama_casal">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Valor Diária" autocomplete="off"  [(ngModel)]="apartamento.diaria">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <Span class="span-spacer"></Span>
+  <button mat-button (click)="cancelDialog()">Cancelar</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="apartamento">Confirmar</button>
+</div>

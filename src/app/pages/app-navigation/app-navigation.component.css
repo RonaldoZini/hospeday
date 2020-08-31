@@ -1,0 +1,43 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  background-color: #400A0A;
+}
+
+.sidenav .mat-toolbar {
+  height:90px;
+  background-color: #400A0A;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.router-component{
+  padding:40px;
+}
+
+.logo{
+  width:200px;
+  height: auto;
+  position: fixed;
+  top: -5px;
+  left: 4px;
+  margin: auto;
+}
+
+.menu-itens .item{
+  color: #ffffff!important;
+  background-image: linear-gradient(#400A0A,#761414,#400A0A);
+  border-bottom: 1px solid #360505;
+}
+
+.menu-itens .item:hover{
+  background-image: linear-gradient(#919191, #ffffff,#919191);
+  color: #000000!important;
+}

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.span-spacer{
+    flex: 1 1 auto;
+}
+
+table{
+    width: 100%;
+}
+
+.mat-column-options{
+    text-align: right;
+}
+
+.mat-raised-button.mat-primary{
+    background-color: #400a0a;
+}

@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Controle de Reserva</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-select [(ngModel)]="reserva.cliente_id" placeholder="Cliente">
+      <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+        {{cliente.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="reserva.apartamento_id" placeholder="Apartamento">
+      <mat-option *ngFor="let apartamento of apartamentos" [value]="apartamento.id">
+        {{apartamento.numero_apartamento + ' - ' + apartamento.descricao}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div style="width: 100%;">
+    <mat-form-field style="margin-right:30px; width: 140px;">
+      <input matInput placeholder="Check-in" 
+      (ngModelChange)="setHora('checkin')" mask="00/00/0000" autocomplete="off" [(ngModel)]="reserva.checkin">
+    </mat-form-field>
+    <mat-form-field style="width:50px;">
+      <input matInput placeholder="Hora" mask="00:00" autocomplete="off" [(ngModel)]="reserva.hora_checkin">
+    </mat-form-field>
+  </div>
+  <div style="width: 100%;">
+    <mat-form-field style="margin-right:30px; width: 140px;">
+      <input matInput placeholder="Check-out"
+      (ngModelChange)="setHora('checkout')" mask="00/00/0000" autocomplete="off" [(ngModel)]="reserva.checkout">
+    </mat-form-field>
+    <mat-form-field style="width:50px;">
+      <input matInput placeholder="Hora" mask="00:00" autocomplete="off" [(ngModel)]="reserva.hora_checkout">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <Span class="span-spacer"></Span>
+  <button mat-button (click)="cancelDialog()">Cancelar</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="reserva">Confirmar</button>
+</div>

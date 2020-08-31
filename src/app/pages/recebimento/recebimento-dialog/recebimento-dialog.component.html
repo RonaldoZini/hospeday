@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Receber</h1>
+<div mat-dialog-content>
+  
+  <label>Valor Diária: {{apartamento.diaria}}</label>
+  
+  <div class="valores">
+    <mat-form-field class="parcela">
+        <mat-select [(ngModel)]="recebimento.parcela" placeholder="Parcelamento">
+          <mat-option *ngFor="let parcela of parcelas" value="{{parcela[0]}}">{{parcela[1]}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="total">
+      <input matInput placeholder="Valor Total" autocomplete="off" [(ngModel)]="recebimento.valor_total">
+    </mat-form-field>
+  </div>
+
+  <mat-form-field>
+      <mat-select [(ngModel)]="recebimento.tipo_recebimento" placeholder="Tipo de Recebimento">
+        <mat-option value="dinheiro">Dinheiro</mat-option>
+        <mat-option value="cartao">Cartão</mat-option>
+      </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <Span class="span-spacer"></Span>
+  <button mat-button (click)="cancelDialog()">Cancelar</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="recebimento">Confirmar</button>
+</div>

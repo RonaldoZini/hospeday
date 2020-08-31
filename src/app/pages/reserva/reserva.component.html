@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-title>
+      <mat-toolbar>
+        Controle de Reservas
+        <Span class="span-spacer"></Span>
+        <button mat-icon-button (click)="showDialog({})">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-toolbar>
+      <mat-progress-bar mode="query" *ngIf="inLoding"></mat-progress-bar>
+    </mat-card-title>
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource">
+
+        <ng-container matColumnDef="nome" >
+          <th mat-header-cell *matHeaderCellDef Width="300px;"> Cliente </th>
+          <td mat-cell *matCellDef="let reserva"> {{reserva.cliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apartamento">
+          <th mat-header-cell *matHeaderCellDef> Apartamento </th>
+          <td mat-cell *matCellDef="let reserva"> {{reserva.numero_apartamento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkin">
+          <th mat-header-cell *matHeaderCellDef> Check-in </th>
+          <td mat-cell *matCellDef="let reserva"> {{reserva.checkin | mask: '00/00/0000'}} - {{reserva.hora_checkin | mask: '00:00'}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="checkout">
+          <th mat-header-cell *matHeaderCellDef> Check-out </th>
+          <td mat-cell *matCellDef="let reserva"> {{reserva.checkout | mask: '00/00/0000'}} - {{reserva.hora_checkout | mask: '00:00'}}</td>
+        </ng-container>
+
+        <!-- Options -->
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let reserva">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="showDialogRecebimento(reserva)">
+              <mat-icon>attach_money</mat-icon>
+              <span>Receber</span>
+            </button>
+            <button mat-menu-item (click)="showDialog(reserva)">
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
+            </button>
+            <button mat-menu-item (click)="remove(reserva)">
+              <mat-icon>delete</mat-icon>
+              <span>Excluir</span>
+            </button>
+          </mat-menu>
+        </td>
+      </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>

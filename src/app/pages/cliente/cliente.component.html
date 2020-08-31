@@ -1,0 +1,64 @@
+<mat-card class="hospeday-card">
+  <mat-card-title>
+    <mat-toolbar>
+      Cadastro de Clientes
+      <Span class="span-spacer"></Span>
+      <button mat-icon-button (click)="showDialog({})">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-progress-bar mode="query" *ngIf="inLoding"></mat-progress-bar>
+  </mat-card-title>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Nome Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+      </ng-container>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-mail </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.email ? cliente.email : ' - '}} </td>
+      </ng-container>
+
+      <!-- Endereco Column -->
+      <ng-container matColumnDef="contato">
+        <th mat-header-cell *matHeaderCellDef> Telefone/Celular </th>
+        <td mat-cell *matCellDef="let cliente"> {{(cliente.telefone ? cliente.telefone : ' - ') | mask: '(00)0000-0000'}} / {{(cliente.celular ? cliente.celular : ' - ') | mask: '(00)00000-0000'}}  </td>
+      </ng-container>
+
+      <!-- Cidade/UF Column -->
+      <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef> Cidade/UF </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.cidade ? cliente.cidade : ' - '}} / {{cliente.uf ? cliente.uf : ' - '}} </td>
+      </ng-container>
+      
+      <!-- Options -->
+      <ng-container matColumnDef="options">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let cliente">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="showDialog(cliente)">
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
+            </button>
+            <button mat-menu-item (click)="remove(cliente)">
+              <mat-icon>delete</mat-icon>
+              <span>Excluir</span>
+            </button>
+          </mat-menu>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

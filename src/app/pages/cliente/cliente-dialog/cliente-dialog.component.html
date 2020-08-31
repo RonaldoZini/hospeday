@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Adicionar Cliente</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Nome" autocomplete="off" [(ngModel)]="cliente.nome">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="CPF" autocomplete="off" mask="000.000.000-00" [(ngModel)]="cliente.cpf">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="RG" autocomplete="off" [(ngModel)]="cliente.rg">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Telefone" autocomplete="off" mask="(00)0000-0000" [(ngModel)]="cliente.telefone">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Celular" autocomplete="off" mask="(00)00000-0000" [(ngModel)]="cliente.celular">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="E-mail" autocomplete="off" [(ngModel)]="cliente.email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Empresa" autocomplete="off" [(ngModel)]="cliente.empresa">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Cidade" autocomplete="off" [(ngModel)]="cliente.cidade">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Escolha Estado" [(ngModel)]="cliente.uf">
+      <mat-option value="AC">Acre</mat-option>
+      <mat-option value="AL">Alagoas</mat-option>
+      <mat-option value="AP">Amapá</mat-option>
+      <mat-option value="AM">Amazonas</mat-option>
+      <mat-option value="BA">Bahia</mat-option>
+      <mat-option value="CE">Ceará</mat-option>
+      <mat-option value="DF">Distrito Federal</mat-option>
+      <mat-option value="ES">Espírito Santo</mat-option>
+      <mat-option value="GO">Goiás</mat-option>
+      <mat-option value="MA">Maranhão</mat-option>
+      <mat-option value="MT">Mato Grosso</mat-option>
+      <mat-option value="MS">Mato Grosso do Sul</mat-option>
+      <mat-option value="MG">Minas Gerais</mat-option>
+      <mat-option value="PA">Pará</mat-option>
+      <mat-option value="PB">Paraíba</mat-option>
+      <mat-option value="PR">Paraná</mat-option>
+      <mat-option value="PE">Pernambuco</mat-option>
+      <mat-option value="PI">Piauí</mat-option>
+      <mat-option value="RJ">Rio de Janeiro</mat-option>
+      <mat-option value="RN">Rio Grande do Norte</mat-option>
+      <mat-option value="RS">Rio Grande do Sul</mat-option>
+      <mat-option value="RO">Rondônia</mat-option>
+      <mat-option value="RR">Roraima</mat-option>
+      <mat-option value="SC">Santa Catarina</mat-option>
+      <mat-option value="SP">São Paulo</mat-option>
+      <mat-option value="SE">Sergipe</mat-option>
+      <mat-option value="TO">Tocantins</mat-option>
+      <mat-option value="ES">Estrangeiro</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <Span class="span-spacer"></Span>
+  <button mat-button (click)="cancelDialog()">Cancelar</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="cliente">Confirmar</button>
+</div>

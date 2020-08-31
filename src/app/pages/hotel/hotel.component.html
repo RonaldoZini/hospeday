@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-title>
+    <mat-toolbar>
+      Dados do Hotel
+    </mat-toolbar>
+    <mat-progress-bar mode="query" *ngIf="inLoding"></mat-progress-bar>
+  </mat-card-title>
+  <mat-card-content>
+      <mat-form-field class="razao-social">
+        <input matInput placeholder="Razão Social" autocomplete="off" [(ngModel)]="hotel.razao_social">
+      </mat-form-field>
+      <mat-form-field class="cnpj">
+        <input matInput placeholder="CNPJ" mask="00.000.000/0000-00" autocomplete="off" [(ngModel)]="hotel.cnpj">
+      </mat-form-field>
+      <mat-form-field class="endereco">
+        <input matInput placeholder="Endereço" autocomplete="off" [(ngModel)]="hotel.endereco">
+      </mat-form-field>
+      <mat-form-field class="numero-endereco">
+        <input matInput placeholder="Nº" autocomplete="off" [(ngModel)]="hotel.numero_endereco">
+      </mat-form-field>
+      <mat-form-field class="bairro">
+        <input matInput placeholder="Bairro" autocomplete="off" [(ngModel)]="hotel.bairro">
+      </mat-form-field>
+      <mat-form-field class="cidade">
+        <input matInput placeholder="Cidade" autocomplete="off" [(ngModel)]="hotel.cidade">
+      </mat-form-field>
+      <mat-form-field class="uf">
+        <mat-select placeholder="Escolha Estado" [(ngModel)]="hotel.uf">
+          <mat-option value="AC">Acre</mat-option>
+          <mat-option value="AL">Alagoas</mat-option>
+          <mat-option value="AP">Amapá</mat-option>
+          <mat-option value="AM">Amazonas</mat-option>
+          <mat-option value="BA">Bahia</mat-option>
+          <mat-option value="CE">Ceará</mat-option>
+          <mat-option value="DF">Distrito Federal</mat-option>
+          <mat-option value="ES">Espírito Santo</mat-option>
+          <mat-option value="GO">Goiás</mat-option>
+          <mat-option value="MA">Maranhão</mat-option>
+          <mat-option value="MT">Mato Grosso</mat-option>
+          <mat-option value="MS">Mato Grosso do Sul</mat-option>
+          <mat-option value="MG">Minas Gerais</mat-option>
+          <mat-option value="PA">Pará</mat-option>
+          <mat-option value="PB">Paraíba</mat-option>
+          <mat-option value="PR">Paraná</mat-option>
+          <mat-option value="PE">Pernambuco</mat-option>
+          <mat-option value="PI">Piauí</mat-option>
+          <mat-option value="RJ">Rio de Janeiro</mat-option>
+          <mat-option value="RN">Rio Grande do Norte</mat-option>
+          <mat-option value="RS">Rio Grande do Sul</mat-option>
+          <mat-option value="RO">Rondônia</mat-option>
+          <mat-option value="RR">Roraima</mat-option>
+          <mat-option value="SC">Santa Catarina</mat-option>
+          <mat-option value="SP">São Paulo</mat-option>
+          <mat-option value="SE">Sergipe</mat-option>
+          <mat-option value="TO">Tocantins</mat-option>
+          <mat-option value="ES">Estrangeiro</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="telefone">
+        <input matInput placeholder="Telefone" mask="(00)0000-0000" autocomplete="off" [(ngModel)]="hotel.telefone">
+      </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer>
+      <button class="btn salvar" mat-stroked-button full (click)="save()">
+        <i class="material-icons">check</i>
+        Salvar
+      </button>
+  </mat-card-footer>
+</mat-card>

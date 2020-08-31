@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>
+      <img class="logo" src="../../assets/Logo22.png">
+    </mat-toolbar>
+    <mat-nav-list class="menu-itens">
+        <a mat-list-item routerLink="/apartamentos" routerLinkActive="router-link-active" class="item">
+          <mat-icon matListIcon>hotel</mat-icon>
+          Apartamentos
+        </a>
+        <a mat-list-item routerLink="/clientes" routerLinkActive="router-link-active" class="item">
+          <mat-icon matListIcon>people</mat-icon>
+          Clientes
+        </a>
+        <a mat-list-item routerLink="/hoteis" routerLinkActive="router-link-active" class="item">
+          <mat-icon matListIcon>domain</mat-icon>
+          Hotel
+        </a>
+        <a mat-list-item routerLink="/reservas" routerLinkActive="router-link-active" class="item">
+          <mat-icon matListIcon>event</mat-icon>
+          Reservas
+        </a>
+        <a mat-list-item routerLink="/recebimentos" routerLinkActive="router-link-active" class="item">
+          <mat-icon matListIcon>attach_money</mat-icon>
+          Relatório de Receitas
+        </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+   <div class="router-component">
+    <router-outlet></router-outlet>
+   </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
